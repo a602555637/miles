@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#com {
+			height: 20px;
+			background-color: blue;
+			
+		}
+	</style>
+	<title></title>
+	<script type="text/javascript">
+		function func(){
+			alert("hello");
+		}
+		function func1(){
+
+			confirm("commit?");
+		}
+		function func2(){
+			alert("输入姓名~");
+
+		}
+		function attime(){
+			var atime = new Date;
+			document.getElementById("clock").value = atime;
+		}
+		var i = setInterval("clock()",50);
+		// 点击调用函数
+		function tinFo(){
+			var t = setTimeout(alert("hello"), 5000);
+		}
+		//点击开始计数
+		var num = 0;
+		function numCount(){
+			document.getElementById("txt").value = num;
+			num=num+1;
+			setTimeout(numCount() , 1000);
+		}
+		
+
+	</script>
+</head>
+<body>
+	<form>
+		<input id="com" name="set" type="button" value="commit" onclick="func()" onmouseover="func1()"></input>
+		<input type="file" name="file" value="file">
+		<input type="reset" name="box" value="box">
+		<input  id="out1" type="button" name="out1" value="sub" onmouseout="func1()">
+		<input type="text" name="username" value="输入name" onfocus="func2()">
+		<input type="text" name="interval()计时器" value="interval()计时器" onclick="clearInterval(i)">
+		<!-- 点击调用函数 -->
+		<input type="text" name="start" value="start" onclick="tinFo()">
+		<!-- 点击开始计数 -->
+		<input type="text" id="txt" />
+		<input type="text" name="start" value="start" onclick="numCount()">
+	</form>
+</body>
+</html>
+
+
+<!-- interval()计时器 -->
+<!-- <html>
+<body>
+
+<input type="text" id="clock" size="80" />
+<script language=javascript>
+var int=self.setInterval("clock()",50)
+function clock()
+  {
+  var t=new Date()
+  document.getElementById("clock").value=t
+  }
+</script>
+<button onclick="int = window.clearInterval(int)">Stop interval</button>
+
+</body>
+</html> -->
+
+
+
+
+
