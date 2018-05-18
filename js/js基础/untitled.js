@@ -18,7 +18,8 @@ var Arr = {
 	y:2
 }
 //函数表达式
-var a = function(){
+var a = function(ill,lan){
+  document.getElementById("dj") = i;
 
 }
 
@@ -198,7 +199,7 @@ document.write(arr)；
 function sortNum(a,b) {
   return a - b;
  //升序，如降序，把“a - b”该成“b - a”
- //80,16,50,6,100,1
+ //80,16,50,6,100,1  
  //1,6,16,50,80,100
 }
  var myarr = new Array("80","16","50","6","100","1");
