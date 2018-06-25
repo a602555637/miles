@@ -1,0 +1,20 @@
+<view class='news-detail'>
+  <image class='detail-image' src='{{ firstImage }}'></image>
+  <view class='detail-head'>
+    <text>{{ source }}</text>
+    <text class='detail-date'>{{ date }}</text>
+  </view>
+  <text class='detail-title'>{{ title }}</text>
+  <view class='detail-tool'>
+    <view class='detail-icon'>
+      <!-- <image wx:if='{{ collected }}' catchtap='onCollectedTap' src='/images/collection.png'></image>
+      <image wx:else catchtap='onCollectedTap' src='/images/uncollection.png'></image> -->
+      <image class='detail-icon-share' src='/images/share.png'></image>
+    </view>
+    <view class='horizon'></view>
+  </view>
+  <view class='detail-content' wx:for='{{content}}'>
+    <!-- <image class='detail-content-image' src='{{item.src}}'></image> -->
+    <view>{{ item.text}}</view>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+<!-- 轮播 -->
+<view class='swiper-container'>
+  <swiper class='swiper' indicator-dots='true' autoplay='true' interval="5000" duration="1000" indicator-active-color='red' indicator-color='#fff' circular='true'>
+    <swiper-item class='swiper-item'>
+      <image src='/images/img_01.png'></image>
+    </swiper-item>
+    <swiper-item class='swiper-item'>
+      <image src='/images/img_02.png'></image>
+    </swiper-item>
+    <swiper-item class='swiper-item'>
+      <image src='/images/img_03.png'></image>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- menu -->
+<scroll-view scroll-x>
+  <view class='menu-list'>
+    <view class='menu-item' wx:for="{{menuItem}}" style='color:{{item.color}}' data-list='{{item.list}}' data-list='{{  item.list }}' bindtap='onClick'>{{ item.text }}</view>
+  </view>
+</scroll-view>
+<!-- 新闻列表 -->
+<block wx:for='{{ result }}' wx:for-item='item'>
+  <view class='news-list'>
+    <view class='news-head'>
+      <text>{{ item.source }}</text>
+      <text class='news-date'>{{ item.date }}</text>
+    </view>
+    <text class='news-title' bindtap='onDetailTap' data-newsid='{{ item.id }}'>{{ item.title }}</text>
+    <image class='news-image' src='{{ item.firstImage }}' bindtap='onDetailTap' data-newsid='{{ item.id }}'></image>
+    <text class='news-content'>{{ item.content }}</text>
+    <view class='news-like'>
+      <image class='news-like-icon' src='/images/like.png'></image>
+      <text class='news-like-text'>21</text>
+      <image class='news-like-icon' src='/images/comment.png'></image>
+      <text class='news-like-text'>31</text>
+    </view>
+  </view>
+</block>
