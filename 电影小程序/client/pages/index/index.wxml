@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view>
+  <image class='focusimg' src=''></image>
+  <view>复仇者联盟：无限战争</view>
+  <image class='avatar' src=''></image>
+  <view>徐小岩给你推荐了一部电影</view>
+  <view>
+    <view class='hot'>
+      <image></image>
+      <view>热门</view>
+    </view>
+    <view class='my'>
+      <image></image>
+      <view>我的</view>
+    </view>
+  </view>
+</view>
