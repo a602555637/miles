@@ -1,5 +1,5 @@
 <!-- 轮播 -->
-<view class='swiper-container'>
+<view class='swiper-container' bindtap="onSwiperTap">
   <swiper class='swiper' indicator-dots='true' autoplay='true' interval="5000" duration="1000" indicator-active-color='red' indicator-color='#fff' circular='true'>
     <swiper-item class='swiper-item'>
       <image src='/images/img_01.png'></image>
@@ -15,7 +15,7 @@
 <!-- menu -->
 <scroll-view scroll-x>
   <view class='menu-list'>
-    <view class='menu-item' wx:for="{{menuItem}}" style='color:{{item.color}}' data-list='{{item.list}}' data-list='{{  item.list }}' bindtap='onClick'>{{ item.text }}</view>
+    <view class='menu-item {{item.select}}' wx:for='{{menuItem}}' wx:key='text' data-list='{{item.list}}'  data-type='{{item.index}}' bindtap='onClick'>{{ item.text }}</view>
   </view>
 </scroll-view>
 <!-- 新闻列表 -->
@@ -26,7 +26,16 @@
       <text class='news-date'>{{ item.date }}</text>
     </view>
     <text class='news-title' bindtap='onDetailTap' data-newsid='{{ item.id }}'>{{ item.title }}</text>
-    <image class='news-image' src='{{ item.firstImage }}' bindtap='onDetailTap' data-newsid='{{ item.id }}'></image>
+    
+
+    <block wx:if = '{{item.firstImage}}'>
+      <image class='news-image' src='{{ item.firstImage }}' bindtap='onDetailTap' data-newsid='{{ item.id }}'></image>
+    </block>
+    <block wx:else>
+      <image class='news-image' src='/images/img_01.png' mode='scaleToFill'></image>
+    </block>
+    
+
     <text class='news-content'>{{ item.content }}</text>
     <view class='news-like'>
       <image class='news-like-icon' src='/images/like.png'></image>

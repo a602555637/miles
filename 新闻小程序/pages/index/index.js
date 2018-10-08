@@ -1,5 +1,4 @@
-let SELECTEDCOLOR = "red";
-let UNSELECTEDCOLOR = "black";
+let typeSelected = 0;
 
 Page({
 
@@ -10,16 +9,15 @@ Page({
     firstImage: '',
     source: '',
     id: '',
-    selectedItem:'ty',
     //menu
     menuItem: [
-      { "text": "推荐", "list": "ty", "index": "0", "color": SELECTEDCOLOR },
-      { "text": "国内", "list": "gn", "index": "1", "color": UNSELECTEDCOLOR },
-      { "text": "国际", "list": "gj", "index": "2", "color": UNSELECTEDCOLOR },
-      { "text": "财经", "list": "cj", "index": "3", "color": UNSELECTEDCOLOR },
-      { "text": "娱乐", "list": "yl", "index": "3", "color": UNSELECTEDCOLOR },
-      { "text": "军事", "list": "js", "index": "4", "color": UNSELECTEDCOLOR },
-      { "text": "其他", "list": "other", "index": "5", "color": UNSELECTEDCOLOR }
+      { text: "推荐", list: "ty", index: 0, select: 'selected' },
+      { text: "国内", list: "gn", index: 1, select: '' },
+      { text: "国际", list: "gj", index: 2, select: '' },
+      { text: "财经", list: "cj", index: 3, select: '' },
+      { text: "娱乐", list: "yl", index: 4, select: '' },
+      { text: "军事", list: "js", index: 5, select: '' },
+      { text: "其他", list: "other", index: 6, select: '' }
     ],
   },
   // 详情页跳转
@@ -31,36 +29,14 @@ Page({
   },
 
   onLoad(){
-    this.getNow()
+    this.getNow(typeSelected)
   },
-  onPullDownRefresh(){
-    this.getNow(() => {
-      wx.stopPullDownRefresh()
-    })
-  },
-  // 菜单点击事件
-  onClick(event){
-    if (this.data.selectedItem == event.currentTarget.dataset.list){
-      return;
-    }
-    this.data.menuItem.forEach(function (value) {
-      if (value.list == event.currentTarget.dataset.list) {
-        value.color = SELECTEDCOLOR;
-      } else {
-        value.color = UNSELECTEDCOLOR;
-      }
-    });
-    this.setData({
-      menuItem: this.data.menuItem,
-      selectedItem: event.currentTarget.dataset.list
-    })
-    this.getNow()
-  },
-  getNow(callback){
+  //获取网络数据
+  getNow(typeIndex, callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
       data: {
-        'type': this.data.selectedItem
+        'type': this.data.menuItem[typeIndex].list
       },
       success: res => {
         let result = res.data.result;
@@ -70,15 +46,52 @@ Page({
           result: result
         });
       },
+      fail: res => {
+        wx.showToast({
+          icon: "none",
+          title: 'code:404'
+        })
+      },
       complete: () => {
         callback && callback()
       }
     })
   },
 
-  setDate(result){
-    for( var i = 0; i < result.length; i++){
+  setDate(result) {
+    for (var i = 0; i < result.length; i++) {
       result[i].date = result[i].date.slice(0, 10) + ' ' + result[i].date.slice(11, 16)
     }
-  }
+  },
+
+  onPullDownRefresh(){
+    this.getNow(typeSelected , () => {
+      wx.stopPullDownRefresh()
+    })
+  },
+  // 菜单点击事件
+  onClick(event){
+    typeSelected = event.currentTarget.dataset.type
+    this.setTypeSelected()
+    this.getNow(typeSelected)
+  },
+  //菜单点击样式设置
+  setTypeSelected(){
+    let menuItem = []
+    for (let i=0; i<7; i++) {
+      let temp = this.data.menuItem[i]
+      temp.select = '' 
+      menuItem.push(temp)
+    }
+    menuItem[typeSelected].select = 'selected'
+    this.setData({
+      menuItem: menuItem
+    })
+  },
+  // onSwiperTap(event){
+  //   wx.navigateTo({
+  //     url: '/pages/detail/detail?id=' + 1
+  //   })
+  // }
+
 })

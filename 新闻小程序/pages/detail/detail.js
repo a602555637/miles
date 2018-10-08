@@ -33,5 +33,5 @@ Page({
   },
   setDate(result) {
     result.date = result.date.slice(0, 10) + ' ' + result.date.slice(11, 16)
-  }
+  },
 })

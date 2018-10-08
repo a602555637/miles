@@ -64,3 +64,21 @@
 /* .detail-content-image{
   position: absolute;
 } */
+.detail-content-para{
+  color: #666;
+  margin: 20rpx 20rpx 0;
+  line-height: 44rpx;
+  letter-spacing: 2px;
+  font-size: 24rpx;
+}
+.detail-content-title{
+  font-size: 40rpx;
+  line-height: 56rpx;
+  margin-top: 60rpx;
+  font-weight: 700;
+}
+.detail-content-image{
+  width: 690rpx;
+  height: 450rpx;
+  margin-top: 30rpx;
+}

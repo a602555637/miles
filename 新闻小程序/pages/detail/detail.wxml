@@ -13,8 +13,12 @@
     </view>
     <view class='horizon'></view>
   </view>
-  <view class='detail-content' wx:for='{{content}}'>
-    <!-- <image class='detail-content-image' src='{{item.src}}'></image> -->
-    <view>{{ item.text}}</view>
+
+    <view wx:for='{{content}}' wx:key='{{detailData}}'>
+    <view wx:if='{{item.type == "p"}}' class='detail-content-para'>{{item.text}}</view>
+    <view wx:if='{{item.type == "strong"}}' class='detail-content-title'>{{item.text}}</view>
+    <block wx:if='{{item.type=="image"}}' > 
+      <image src='{{item.src}}' class='detail-content-image'></image>
+    </block>   
   </view>
 </view>

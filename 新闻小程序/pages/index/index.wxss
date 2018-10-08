@@ -19,7 +19,9 @@ swiper image{
   padding-bottom: 28rpx;
   opacity: 0.8;
 }
-
+.selected{
+  color: red;
+}
 
  .news-list{
   display: flex;
