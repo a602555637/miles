@@ -1,20 +1,17 @@
 {
 	"description": "项目配置文件。",
-	"packOptions": {
-		"ignore": []
-	},
 	"setting": {
 		"urlCheck": false,
-		"es6": true,
+		"es6": false,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
+	"miniprogramRoot": "dist/",
+	"qcloudRoot": "server/",
 	"compileType": "miniprogram",
-	"libVersion": "2.0.8",
 	"appid": "wx66ff0672c0d14571",
-	"projectname": "news%20miniprogram",
-	"isGameTourist": false,
+	"projectname": "mpvue-demo",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -33,13 +30,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": -1,
 					"name": "detail",
-					"pathName": "pages/detail/detail",
-					"query": ""
+					"pathName": "pages/detail/main"
 				}
 			]
 		}
