@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "data": {
+    "topicList": [{
+      "id": 1,
+      "title": "hot points",
+      "imgUrl": "https://upload-images.jianshu.io/upload_images/9073718-961643f4ce827225.JPG?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+    }],
+    "articleList": [{
+      "id": 1,
+      "title": "1huge, sososo item, diie images jianshu ,upload",
+      "desc": "huge, sososo item, diie images jianshu ,upload.huge, sososo item, diie images jianshu ,upload",
+      "imgUrl": "https://upload-images.jianshu.io/upload_images/9073718-961643f4ce827225.JPG?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+    }],
+    "recommendList": [{
+      "id": 1,
+      "title": "7 days‘point",
+      "imgUrl": "#FF69B4"
+    }, {
+      "id": 2,
+      "title": "settimeout",
+      "imgUrl": "#7B68EE"
+    }, {
+      "id": 3,
+      "title": "clear",
+      "imgUrl": "#E6E6FA"
+    }, {
+      "id": 4,
+      "title": "logo",
+      "imgUrl": "#6495ED"
+    }, {
+      "id": 5,
+      "title": "upload",
+      "imgUrl": "#F0E68C"
+    }]
+  }
+}
